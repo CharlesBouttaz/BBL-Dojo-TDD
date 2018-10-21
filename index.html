@@ -1,0 +1,328 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h1>BBL - Coding Dojo</h1>
+            charles@bouttaz.com - @CharlesBouttaz
+        </section>
+
+        <section>
+            <h1>Hello world !</h1>
+            <img height="200" width="200" src="img/whoami/java-logo.png">
+            <img height="200" width="200" src="img/whoami/logo-JUG.jpg">
+            <img height="200" width="200" src="img/whoami/mixit-logo.png">
+            <img height="200" width="200" src="img/whoami/swcraft-logo.jpeg">
+            <p>
+                charles@bouttaz.com - @CharlesBouttaz
+            </p>
+            <aside class="notes">
+                <ul>
+                    <li>dev depuis 10ans</li>
+                    <li>je fais des formations et de l'accopagnement d'équipes tech</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Tests & TDD</h1>
+        </section>
+        <section>
+            <h2>Sondage</h2>
+            <ul>
+                <li class="fragment">Language ?</li>
+                <li class="fragment">Tests unitaires ?</li>
+                <li class="fragment">TDD ?</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Pourquoi les tests ?</h2>
+            <p><i class="fas fa-microphone"></i></p>
+            <ul class="fragment">
+                <li>Vérifier que le code fonctionne correctement</li>
+                <li>Prévenir les régressions futures</li>
+                <li>Documenter le comportement du code</li>
+                <li>Faciliter le refactoring</li>
+                <li>Guider le design</li>
+            </ul>
+            <aside class="notes">
+                <ul>
+                    <li>Valide aujourd'hui et demain et pour le même prix</li>
+                    <li>Redonner leur cerveau au testeurs (tests exploratoires)</li>
+                    <li>Doc. Pas de pb de désynchro come avec les commentaire</li>
+                </ul>
+            </aside>
+        </section>
+        <section>
+            <h2>Boucle de feedback</h2>
+            <div><i class="fas fa-sync"></i> Objectif: réduire la boucle de feedback</div>
+            <div><i class="fas fa-bug"></i> Est ce que j'ai cassé qq chose ?</div>
+            <div><i class="far fa-clock"></i> Test sec, PIC min, Test jours</div>
+            <div><i class="fas fa-trash"></i> Peur de modifier => Le code pourrit</div>
+            <aside class="notes">
+
+            </aside>
+        </section>
+        <section>
+            <h2>Pourquoi TDD ?</h2>
+            <ul>
+                <li>On veut du code maintenable (qu'on peut changer facilement).</li>
+                <li class="fragment">Limiter le cout des changments (bug, regressions, tests manuels)</li>
+                <li class="fragment">Pour pouvoir changer le code il faut qu'il soit testé automatiquement</li>
+                <li class="fragment">Pour que le code soit testable il faut qu'il ai été créé a partir des tests.</li>
+            </ul>
+            <aside class="notes">
+                <ul>
+                    <li>Maintenable: software => changement</li>
+                    <li>Sinon on ne sait pas si on a cassé qq chose -> Tests manuels</li>
+                    <li>Si on fait du test after le design qu'on a utilisé ne sera pas forcément facile à tester ->
+                        pénible
+                    </li>
+                    <li>TDD => Code simpler to change => change less expensive</li>
+                </ul>
+            </aside>
+        </section>
+        <section data-background="img/TDD-Initiation-6.png">
+            <aside class="notes">
+                <ul>
+                    <li>Baby steps: on veut itérer rapidement (qq sec - qq min)</li>
+                </ul>
+            </aside>
+        </section>
+        <section data-background="img/TDD-Initiation-7.png"></section>
+        <section>
+            <h2>Red</h2>
+            <ul>
+                <li>Pas de code (de production) sans test</li>
+                <li>Ajouter juste assez de code pour le faire compiler</li>
+                <li>Lancer le test qui doit échouer</li>
+            </ul>
+            <aside class="notes">
+                <ul>
+                    <li>Nomage technique: [METHODNAME] With [ARGUMENTS] Return [VALUE]</li>
+                    <li>Nomage métier: [METHODNAME] When [ACTION] Should [BIHAVIOUR]</li>
+                    <li>Structure: Arrange / Act / Assert || Given / When / Then</li>
+                    <li>Start with Assert</li>
+                </ul>
+            </aside>
+        </section>
+        <section data-background="img/TDD-Initiation-8.png"></section>
+
+        <section>
+            <h2>Green</h2>
+            <ul>
+                <li>Ecrire l'implémentation</li>
+                <li>le plus rapidement possible</li>
+            </ul>
+            <aside class="notes">
+                <ul>
+                    <li>A ce stade c'est ok d'écrire du code sale, dupliqué, trivial etc.</li>
+                    <li>On écrit pas plus de code que nécéssaire pour faire passer le test</li>
+                    <li>Si on y arrive pas on fake l'implem (return true)</li>
+                    <li>Si on y arrive pas du tout on écrit un test plus simple</li>
+                </ul>
+            </aside>
+        </section>
+        <section data-background="img/TDD-Initiation-9.png"></section>
+
+        <section>
+            <h2>Refactor</h2>
+            <ul>
+                <li>Nettoyer le code (Code smells)</li>
+                <li>Supprimer la duplication</li>
+                <li>Améliorer la lisibilité</li>
+            </ul>
+            <aside class="notes">
+                <ul>
+                    <li>On réduit la duplication dans le code et dans les tests</li>
+                    <li>Lisibilité: nom des variables, functions, classes, nom des tests</li>
+                    <li>On ajoute pas de comportement à ce moment</li>
+                </ul>
+            </aside>
+        </section>
+        <section data-background="img/TDD-Initiation-10.png"></section>
+        <section data-background="img/TDD-Initiation-11.png"></section>
+
+        <section>
+            <h1>Kata 1: FizzBuzz</h1>
+            Si le nombre est divisible par 3, on le remplace par Fizz, Si le nombre est divisible par 5, on le remplace par Buzz, Si le nombre est divisible par 3 et 5, alors on le remplace par FizzBuzz Dans tous les autres cas, on retourne le nombre sous forme de chaine de carractères.
+            <aside class="notes">
+                <ul>
+                    <li>Ping pong pair</li>
+                    <li>Baby steps</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section>
+            <h2>Rétro</h2>
+        </section>
+
+        <section>
+            <h2>Tips</h2>
+            <ul>
+                <li>Ajouter un nouveau test seulement en étape "vert"</li>
+                <li>S'assurer que le test est bien "rouge" avant de coder la feature</li>
+                <li>Coder dans l'optique de revenir au plus vite au vert</li>
+                <li>On refactor soit le code soit les tests mais pas les 2 en même temps</li>
+            </ul>
+        </section>
+
+        <section>
+            <pre><code data-trim data-noescape>
+@Test
+public void testShouldReturnHelloWorldWhenNothing() {
+    // Arrange / Given
+    MaClasse monObjet = new MaClasse();
+    // Act / When
+    String resultat = monObjet.maMethodeATester();
+    // Assert / Then
+    assertEquals("Hello World!", resultat);
+}
+                </code></pre>
+        </section>
+
+        <section>
+            <h2>Kata 2: Roman Numerals</h2>
+            <img src="img/chiffres-romains.jpg">
+            <aside class="notes">
+                <ul>
+                    <li>Laisser les tests guider le design</li>
+                    <li>Si avance trop vite : convertir dans l'autre sens</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section>
+            <h2>Rétrospective</h2>
+            <p><i class="fas fa-microphone"></i></p>
+            <aside class="notes">
+                <ul>
+                    <li>Est ce que vous avez réussi à construire l'algorithme graduellement ?</li>
+                    <li>Est ce que vous avez utilisé la triangulation & duplication pour faire émerger l'algo ?</li>
+                    <li>Est ce que l'algorithme que vous avez écrit est évident en lisant le code ? besoin de
+                        commentaires?
+                    </li>
+                </ul>
+            </aside>
+        </section>
+
+        <section>
+            <h2>Objection1: ça coute cher !</h2>
+            <img src="img/money-test-Justification.png">
+            <br/>
+            Source:<a
+                href="https://medium.com/javascript-scene/the-outrageous-cost-of-skipping-tdd-code-reviews-57887064c412">TDD
+            the art of fearless programming</a>
+            <aside class="notes">
+                Pour votre manager / chef de projet qui vous met la pression.
+                <ul>
+                    <li>Un projet développé en TDD prend 30% de temps en plus</li>
+                    <li>Un projet développé en TDD réduit le nb de bugs de ~60%</li>
+                    <li>Corriger un bug coute 15x moins cher en dev qu'en prod</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section>
+            <h2>Objection 2: C'est trop dur !</h2>
+            <p class="fragment">
+                <img width="450" src="img/chasse-neige.jpg">
+            </p>
+            <p class="fragment">
+                <img width="450" src="img/parallel-ski.jpg">
+            </p>
+        </section>
+
+        <section>
+            <h2>Objection 3: pas possible sur mon projet</h2>
+            <p>Test difficile à écrire ?</p>
+            <p class="fragment">problème de design</p>
+            <aside class="notes">
+                <ul>
+                    <li>C'est souvent pour ça que les gens abandonnent</li>
+                    <li>C'est tirer sur le messager</li>
+                    <li>Si un voyant s'affiche sur le tableau de bord ce n'est pas sa faute !</li>
+                    <li>Si votre code n'est pas testable c'est que votre design n'est pas bon</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section>
+            <h2>Pour aller plus loin: Lyon Tech Hub</h2>
+            <img src="img/LyonTechHub.png">
+        </section>
+
+        <section>
+            <h2>Pour aller plus loin: Software Crafters</h2>
+            <img src="img/SoftwareCrafters.png">
+            <aside class="notes">
+                Code retreat
+            </aside>
+        </section>
+
+        <section>
+            <h2>Pour aller plus loin: </h2>
+            <img src="img/books/TDD-Book.jpeg">
+            <img src="img/books/CleanCode.jpeg">
+            <img src="img/books/GOOS.jpeg">
+            <aside class="notes">
+                <ul>
+                    <li>Je fais aussi des formations</li>
+                    <li>Accompagnement d'équipes techniques (refactoring, code review, etc.)</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Merci !</h1>
+            charles@bouttaz.com - @CharlesBouttaz
+        </section>
+
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
